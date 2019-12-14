@@ -8,7 +8,7 @@ export interface TileProps {
 
 const Wrapper = styled.section<TileProps>`
   grid-column-start: 1;
-  grid-column-end: ${props => props.tileSize = TileSize.Large ? 3 : props.tileSize = TileSize.Medium ? 2 : 1};
+  grid-column-end: ${props => props.tileSize == TileSize.Large ? 4 : props.tileSize == TileSize.Medium ? 3 : 2};
   background-color: #666;
 `
 

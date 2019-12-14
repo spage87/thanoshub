@@ -12,7 +12,6 @@ const Wrapper = styled.section`
 `
 
 class Dashboard extends Component {
-
     render() {
       return <Wrapper>
         

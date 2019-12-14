@@ -12,7 +12,7 @@ class Header extends Component {
       return (
           <React.Fragment>
             <Title>
-            <h1>Thanos Hub</h1>
+            Thanos Hub
             </Title>
             <Button />
             <Button />
