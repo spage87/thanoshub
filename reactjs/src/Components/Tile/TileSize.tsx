@@ -1,3 +1,6 @@
-export class TileSize {
-    
+
+export enum TileSize {
+    Large,
+    Medium,
+    Small
 }
