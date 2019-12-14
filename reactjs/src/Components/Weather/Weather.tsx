@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import Tile from '../Tile/Tile';
 
-class Weather extends Tile {
+class Weather extends Component {
 
     render() {
       return <Fragment>Weather Tile</Fragment>

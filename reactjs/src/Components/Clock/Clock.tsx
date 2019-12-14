@@ -1,10 +1,20 @@
 import React, { Component, Fragment } from 'react';
-import Tile from '../Tile/Tile';
+import {DateTime} from 'luxon';
 
-class Clock extends Tile {
-
+class Clock extends Component {
+  
     render() {
-      return <Fragment></Fragment>
+      var dateTime = DateTime.local();
+
+    return (
+    <Fragment>
+      <div>
+        {dateTime.day} {dateTime.monthLong} {dateTime.year}
+      </div>
+      <div>
+        {dateTime.hour}:{dateTime.minute}
+      </div>
+    </Fragment>)
     }
   }
   
