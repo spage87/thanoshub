@@ -1,43 +1,31 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState, useEffect } from "react";
 import { DateTime } from "luxon";
 
-class Clock extends Component {
-  state = {
-    dateTime: DateTime.local()
-  };
-  timer: number = setInterval(() => this.tick(), 1000);
+function Clock() {
+  const [dateTime, setDateTime] = useState(UpdateTime());
 
-  componentDidMount() {
-    this.timer = setInterval(() => this.tick(), 1000);
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDateTime(UpdateTime());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-  componentWillUnmount() {
-    clearInterval(this.timer);
-  }
+  return (
+    <Fragment>
+      <div>
+        {dateTime.day} {dateTime.monthLong} {dateTime.year}
+      </div>
+      <div>
+        {dateTime.hour}:{dateTime.minute >= 0 && dateTime.minute <= 9 ? 0 : ""}
+        {dateTime.minute}
+      </div>
+    </Fragment>
+  );
+}
 
-  tick() {
-    this.setState({
-      dateTime: DateTime.local()
-    });
-  }
-
-  render() {
-    return (
-      <Fragment>
-        <div>
-          {this.state.dateTime.day} {this.state.dateTime.monthLong}{" "}
-          {this.state.dateTime.year}
-        </div>
-        <div>
-          {this.state.dateTime.hour}:
-          {this.state.dateTime.minute >= 0 && this.state.dateTime.minute <= 9
-            ? 0
-            : ""}
-          {this.state.dateTime.minute}
-        </div>
-      </Fragment>
-    );
-  }
+function UpdateTime() {
+  return DateTime.local();
 }
 
 export default Clock;
