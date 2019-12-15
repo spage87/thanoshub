@@ -1,6 +1,5 @@
-
 export enum TileSize {
-    Large,
-    Medium,
-    Small
+  Large,
+  Medium,
+  Small
 }
