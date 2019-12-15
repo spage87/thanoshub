@@ -1,5 +1,29 @@
-import React, { Fragment, useState, useEffect, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { DateTime } from "luxon";
+import styled from "styled-components";
+
+const Wrapper = styled.section`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Date = styled.section`
+  display: flex;
+`;
+
+const Day = styled.section`
+  font-size: 2rem;
+`;
+const Month = styled.section`
+  font-size: 2rem;
+`;
+const Year = styled.section`
+  font-size: 1.5rem;
+`;
+
+const Time = styled.section`
+  font-size: 2rem;
+`;
 
 const Clock: FC = () => {
   const [dateTime, setDateTime] = useState(UpdateTime());
@@ -11,21 +35,22 @@ const Clock: FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  function UpdateTime() {
+    return DateTime.local();
+  }
+
   return (
-    <Fragment>
-      <div>
-        {dateTime.day} {dateTime.monthLong} {dateTime.year}
-      </div>
-      <div>
+    <Wrapper>
+      <Date>
+        <Day>{dateTime.day}</Day> <Month>{dateTime.monthLong}</Month>{" "}
+        <Year>{dateTime.year}</Year>
+      </Date>
+      <Time>
         {dateTime.hour}:{dateTime.minute >= 0 && dateTime.minute <= 9 ? 0 : ""}
         {dateTime.minute}
-      </div>
-    </Fragment>
+      </Time>
+    </Wrapper>
   );
 };
-
-function UpdateTime() {
-  return DateTime.local();
-}
 
 export default Clock;
