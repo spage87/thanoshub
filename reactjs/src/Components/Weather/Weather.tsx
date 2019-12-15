@@ -1,9 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment, FC } from "react";
 
-class Weather extends Component {
-  render() {
-    return <Fragment>Weather Tile</Fragment>;
-  }
-}
+const Weather: FC = () => {
+  return <Fragment>Weather Tile</Fragment>;
+};
 
 export default Weather;

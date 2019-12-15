@@ -1,7 +1,7 @@
-import React, { Component, Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, FC } from "react";
 import { DateTime } from "luxon";
 
-function Clock() {
+const Clock: FC = () => {
   const [dateTime, setDateTime] = useState(UpdateTime());
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function Clock() {
       </div>
     </Fragment>
   );
-}
+};
 
 function UpdateTime() {
   return DateTime.local();

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { FC, Fragment } from "react";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import { createGlobalStyle } from "styled-components";
 import Header from "./Components/Header/Header";
@@ -13,16 +13,14 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <Header />
-        <GlobalStyle />
-        <Dashboard />
-      </React.Fragment>
-    );
-  }
-}
+const App: FC = () => {
+  return (
+    <Fragment>
+      <Header />
+      <GlobalStyle />
+      <Dashboard />
+    </Fragment>
+  );
+};
 
 export default App;

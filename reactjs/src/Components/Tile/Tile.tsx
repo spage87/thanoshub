@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, FC } from "react";
 import { TileSize } from "../Tile/TileSize";
 import styled from "styled-components";
 
@@ -23,12 +23,8 @@ const Wrapper = styled.section<TileProps>`
   padding: 1%;
 `;
 
-class Tile extends Component<TileProps> {
-  render() {
-    return (
-      <Wrapper tileSize={this.props.tileSize}>{this.props.children}</Wrapper>
-    );
-  }
-}
+const Tile: FC<TileProps> = props => {
+  return <Wrapper tileSize={props.tileSize}>{props.children}</Wrapper>;
+};
 
 export default Tile;

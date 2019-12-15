@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import Button from "../Button/Button";
 
@@ -12,16 +12,13 @@ const Title = styled.h1`
   font-family: "Roboto Condensed", sans-serif;
 `;
 
-class Header extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <Title>Thanos Hub</Title>
-        <Button />
-        <Button />
-      </Wrapper>
-    );
-  }
-}
-
+const Header: FC = () => {
+  return (
+    <Wrapper>
+      <Title>Thanos Hub</Title>
+      <Button />
+      <Button />
+    </Wrapper>
+  );
+};
 export default Header;

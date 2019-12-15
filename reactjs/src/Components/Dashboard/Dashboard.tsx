@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { FC } from "react";
 import { TileSize } from "../Tile/TileSize";
 import Weather from "../Weather/Weather";
 import Clock from "../Clock/Clock";
@@ -13,26 +13,23 @@ const Wrapper = styled.section`
   margin: 10px;
 `;
 
-class Dashboard extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <Tile tileSize={TileSize.Medium}>
-          <Clock />
-        </Tile>
+const Dashboard: FC = () => {
+  return (
+    <Wrapper>
+      <Tile tileSize={TileSize.Medium}>
+        <Clock />
+      </Tile>
 
-        <Tile tileSize={TileSize.Large}>
-          <Weather />
-        </Tile>
+      <Tile tileSize={TileSize.Large}>
+        <Weather />
+      </Tile>
 
-        <Tile tileSize={TileSize.Small}>custom 1</Tile>
-        <Tile tileSize={TileSize.Small}>custom 2</Tile>
-        <Tile tileSize={TileSize.Small}>custom 3</Tile>
-        <Tile tileSize={TileSize.Small}>custom 4</Tile>
-        <Tile tileSize={TileSize.Small}>custom 5</Tile>
-      </Wrapper>
-    );
-  }
-}
-
+      <Tile tileSize={TileSize.Small}>custom 1</Tile>
+      <Tile tileSize={TileSize.Small}>custom 2</Tile>
+      <Tile tileSize={TileSize.Small}>custom 3</Tile>
+      <Tile tileSize={TileSize.Small}>custom 4</Tile>
+      <Tile tileSize={TileSize.Small}>custom 5</Tile>
+    </Wrapper>
+  );
+};
 export default Dashboard;
