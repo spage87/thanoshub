@@ -1,6 +1,12 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import Button from "../Button/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSlidersH,
+  faSignInAlt,
+  faSignOutAlt
+} from "@fortawesome/free-solid-svg-icons";
 
 const Wrapper = styled.section`
   display: flex;
@@ -18,6 +24,9 @@ const Header: FC = () => {
       <Title>Thanos Hub</Title>
       <Button />
       <Button />
+      <FontAwesomeIcon icon={faSignInAlt} />
+      <FontAwesomeIcon icon={faSignOutAlt} />
+      <FontAwesomeIcon icon={faSlidersH} />
     </Wrapper>
   );
 };
