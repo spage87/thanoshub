@@ -2,16 +2,38 @@ import React, { Component, Fragment } from "react";
 import { DateTime } from "luxon";
 
 class Clock extends Component {
-  render() {
-    var dateTime = DateTime.local();
+  state = {
+    dateTime: DateTime.local()
+  };
+  timer: number = setInterval(() => this.tick(), 1000);
 
+  componentDidMount() {
+    this.timer = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  tick() {
+    this.setState({
+      dateTime: DateTime.local()
+    });
+  }
+
+  render() {
     return (
       <Fragment>
         <div>
-          {dateTime.day} {dateTime.monthLong} {dateTime.year}
+          {this.state.dateTime.day} {this.state.dateTime.monthLong}{" "}
+          {this.state.dateTime.year}
         </div>
         <div>
-          {dateTime.hour}:{dateTime.minute}
+          {this.state.dateTime.hour}:
+          {this.state.dateTime.minute >= 0 && this.state.dateTime.minute <= 9
+            ? 0
+            : ""}
+          {this.state.dateTime.minute}
         </div>
       </Fragment>
     );
